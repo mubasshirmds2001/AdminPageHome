@@ -14,24 +14,11 @@ import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
     Button helpbutton,addbutton;
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
-        listView=(ListView)findViewById(R.id.project_lists);
-
-        ArrayList<String> project = new ArrayList<>();
-        project.add("Demo-1");
-        project.add("Demo-2");
-        project.add("Demo-3");
-        project.add("Demo-4");
-
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,project);
-        listView.setAdapter(arrayAdapter);
-
 
         helpbutton=(Button)findViewById(R.id.btn_help);
 
@@ -40,14 +27,11 @@ public class HomePage extends AppCompatActivity {
         addbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAddProjectActivity();
-            }
-
-            private void openAddProjectActivity() {
-                Intent intent= new Intent(HomePage.this,project_click.class);
+                Intent intent=new Intent(HomePage.this,project_click.class);
                 startActivity(intent);
             }
         });
+
         helpbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
